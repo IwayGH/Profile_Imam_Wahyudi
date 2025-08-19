@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Imam Wahyudi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+        padding-top: 130px;
+        padding-bottom: 60px;
+        scroll-padding-top: 150px;
+      }
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+      .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Style for formal download button */
+      .download-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        border-radius: 9999px;
+        font-weight: 600;
+        background-color: #3b82f6;
+        color: white;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+      }
+      .download-button:hover {
+        background-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+      .download-button svg {
+        margin-right: 8px;
+      }
+
+      /* Hide specific elements when printing to PDF */
+      @media print {
+        body {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        header,
+        footer,
+        #darkToggle {
+          display: none;
+        }
+        .download-button,
+        .lang-buttons {
+          display: none;
+        }
+        .relative.group label,
+        .relative.group input {
+          display: none;
+        }
+        .container {
+          margin: 0;
+          padding: 0;
+        }
+        section {
+          box-shadow: none !important;
+          border: 1px solid #e5e7eb;
+          margin-bottom: 20px;
+          padding: 20px;
+        }
+        .fade-in {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+    <!-- Header Section -->
+    <header
+      class="fixed top-0 left-0 right-0 bg-white py-8 rounded-b-3xl shadow-xl z-50 transition-colors duration-300"
+    >
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <!-- Left-aligned text -->
+        <div class="flex-shrink-0">
+          <h1 class="text-3xl sm:text-4xl font-bold mb-1 text-slate-800">
+            Imam Wahyudi
+          </h1>
+          <p
+            data-i18n="header-subtitle"
+            class="text-sm sm:text-lg font-light opacity-80 text-gray-600"
+          >
+            Senior Microwave Technical Support | Jakarta, Indonesia
+          </p>
+        </div>
+
+        <!-- Right-aligned language and dark mode buttons -->
+        <div class="flex items-center space-x-4 lang-buttons">
+          <!-- Change Unduh CV link to a button to trigger print -->
+          <button id="download-cv-btn" class="download-button hidden sm:flex">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L10 11.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M10 2a1 1 0 011 1v9a1 1 0 11-2 0V3a1 1 0 011-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span data-i18n="download-cv">Unduh CV</span>
+          </button>
+          <div class="flex space-x-2">
+            <button
+              id="lang-id"
+              class="p-3 rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              ID
+            </button>
+            <button
+              id="lang-en"
+              class="p-3 rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              EN
+            </button>
+            <!-- Dark Mode Toggle Button -->
+            <button
+              id="darkToggle"
+              class="p-3 rounded-full bg-blue-600 text-white shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              🌙
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container mx-auto px-4">
+      <!-- About Section -->
+      <section
+        id="about"
+        class="bg-white p-6 md:p-10 rounded-2xl shadow-lg mt-8 mb-8 fade-in flex flex-col md:flex-row items-center gap-6 md:gap-10 transform hover:scale-[1.01] transition-transform duration-300"
+      >
+        <!-- Profile Image and Uploader - Increased size from w-40 h-40 to w-52 h-52 -->
+        <div class="relative w-52 h-52 flex-shrink-0">
+          <img
+            id="profile-img"
+            src="https://placehold.co/160x160/cbd5e1/475569?text=Imam"
+            alt="Foto Profil"
+            class="w-full h-full rounded-full object-cover shadow-lg border-4 border-white cursor-pointer transition-transform duration-300 hover:scale-105"
+          />
+          <!-- Hidden file input -->
+          <input
+            type="file"
+            id="image-upload"
+            accept="image/*"
+            class="hidden"
+          />
+          <!-- Overlay for hover effect -->
+          <label
+            for="image-upload"
+            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white rounded-full opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+          >
+            <span data-i18n="upload-photo" class="text-xs text-center font-bold"
+              >Unggah Foto</span
+            >
+          </label>
+        </div>
+
+        <div>
+          <h2
+            data-i18n="about-title"
+            class="text-2xl sm:text-3xl font-semibold text-slate-700 mb-2"
+          >
+            Tentang Saya
+          </h2>
+          <p data-i18n="about-text" class="text-gray-600 leading-relaxed">
+            Saya adalah seorang profesional di bidang Microwave Technical
+            Support dengan pengalaman lebih dari 15 tahun di industri
+            telekomunikasi. Saya memiliki keahlian dalam instalasi,
+            commissioning, dan troubleshooting berbagai perangkat microwave.
+          </p>
+        </div>
+      </section>
+
+      <!-- Education & Contact Section -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <section
+          id="education"
+          class="bg-white p-6 md:p-8 rounded-2xl shadow-lg fade-in transform hover:scale-[1.01] transition-transform duration-300"
+        >
+          <h2
+            data-i18n="education-title"
+            class="text-2xl sm:text-3xl font-semibold text-slate-700 mb-4"
+          >
+            Pendidikan
+          </h2>
+          <ul class="space-y-4 text-gray-600">
+            <li>
+              <h3
+                class="font-bold text-slate-800"
+                data-i18n="education-degree1-title"
+              >
+                Sarjana Teknik Telekomunikasi
+              </h3>
+              <p
+                class="text-sm italic"
+                data-i18n="education-degree1-university"
+              >
+                Universitas Telkom
+              </p>
+              <p
+                class="text-xs text-gray-500"
+                data-i18n="education-degree1-date"
+              >
+                2005 - 2009
+              </p>
+            </li>
+          </ul>
+        </section>
+
+        <section
+          id="contact"
+          class="bg-white p-6 md:p-8 rounded-2xl shadow-lg fade-in transform hover:scale-[1.01] transition-transform duration-300"
+        >
+          <h2
+            data-i18n="contact-title"
+            class="text-2xl sm:text-3xl font-semibold text-slate-700 mb-4"
+          >
+            Kontak
+          </h2>
+          <div class="text-gray-600 space-y-2">
+            <p>
+              <strong data-i18n="contact-email">Email:</strong>
+              <a
+                href="mailto:iway.channel2020@gmail.com"
+                class="text-blue-500 hover:underline"
+                >iway.channel2020@gmail.com</a
+              >
+            </p>
+            <p>
+              <strong data-i18n="contact-phone">HP/WA:</strong>
+              <a
+                href="https://wa.me/6281287872630"
+                target="_blank"
+                class="text-blue-500 hover:underline"
+                >+62 812-8787-2630</a
+              >
+            </p>
+            <p>
+              <strong data-i18n="contact-location">Lokasi:</strong> Jakarta,
+              Indonesia
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <!-- Experience Section -->
+      <section
+        id="experience"
+        class="bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8 fade-in transform hover:scale-[1.01] transition-transform duration-300"
+      >
+        <h2
+          data-i18n="experience-title"
+          class="text-2xl sm:text-3xl font-semibold text-slate-700 mb-4"
+        >
+          Pengalaman Kerja
+        </h2>
+        <ul class="space-y-4 text-gray-600">
+          <li>
+            <h3
+              class="font-bold text-slate-800"
+              data-i18n="experience-job1-title"
+            >
+              Senior Microwave Technical Support
+            </h3>
+            <p class="text-sm italic" data-i18n="experience-job1-company">
+              PT Fiberhome Technologies Indonesia
+            </p>
+            <p class="text-xs text-gray-500" data-i18n="experience-job1-date">
+              2010 - Sekarang
+            </p>
+            <ul class="list-disc list-inside mt-2 text-sm">
+              <li data-i18n="experience-job1-desc1">
+                Instalasi, pengujian, dan troubleshooting perangkat microwave
+                berbagai vendor.
+              </li>
+              <li data-i18n="experience-job1-desc2">
+                Analisis performa link menggunakan Spectrum Analyzer & Pathloss.
+              </li>
+              <li data-i18n="experience-job1-desc3">
+                Membuat laporan performa harian dan koordinasi dengan tim
+                operator.
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Skills Section -->
+      <section
+        id="skills"
+        class="bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8 fade-in transform hover:scale-[1.01] transition-transform duration-300"
+      >
+        <h2
+          data-i18n="skills-title"
+          class="text-2xl sm:text-3xl font-semibold text-slate-700 mb-4"
+        >
+          Keahlian
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="bg-slate-50 p-4 rounded-lg shadow-sm">
+            <h3
+              data-i18n="skills-devices-title"
+              class="font-medium text-slate-800"
+            >
+              Perangkat
+            </h3>
+            <ul class="list-disc list-inside text-gray-600 pl-4 mt-2">
+              <li>Huawei, ZTE, NEC</li>
+              <li>Ceragon Microwave</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-lg shadow-sm">
+            <h3
+              data-i18n="skills-tools-title"
+              class="font-medium text-slate-800"
+            >
+              Tools
+            </h3>
+            <ul class="list-disc list-inside text-gray-600 pl-4 mt-2">
+              <li>UNMS, NetMaster, PNMT</li>
+              <li>iManager U2000</li>
+            </ul>
+          </div>
+          <div class="bg-slate-50 p-4 rounded-lg shadow-sm">
+            <h3
+              data-i18n="skills-planning-title"
+              class="font-medium text-slate-800"
+            >
+              Network Planning
+            </h3>
+            <ul class="list-disc list-inside text-gray-600 pl-4 mt-2">
+              <li>Pathloss, Radio Mobile</li>
+              <li>Spectrum Analyzer & Monitoring</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery Section -->
+      <section
+        id="work"
+        class="bg-white p-6 md:p-8 rounded-2xl shadow-lg mb-8 fade-in transform hover:scale-[1.01] transition-transform duration-300"
+      >
+        <h2
+          data-i18n="gallery-title"
+          class="text-2xl sm:text-3xl font-semibold text-slate-700 mb-4"
+        >
+          Galeri Pekerjaan
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <!-- Project 1 -->
+          <div class="relative group">
+            <img
+              id="work-img-1"
+              src="https://placehold.co/500x350/a1a1aa/ffffff?text=Project+1"
+              alt="Pekerjaan Lapangan 1"
+              class="w-full rounded-xl shadow-lg object-cover transition-transform group-hover:scale-105 cursor-pointer"
+            />
+            <input
+              type="file"
+              id="work-upload-1"
+              accept="image/*"
+              class="hidden"
+            />
+            <label
+              for="work-upload-1"
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            >
+              <span data-i18n="upload-photo" class="text-sm font-bold"
+                >Unggah Foto</span
+              >
+            </label>
+            <p
+              data-i18n="gallery-desc1"
+              class="text-sm text-gray-600 text-center mt-2"
+            >
+              Instalasi perangkat microwave di lokasi terpencil.
+            </p>
+          </div>
+          <!-- Project 2 -->
+          <div class="relative group">
+            <img
+              id="work-img-2"
+              src="https://placehold.co/500x350/a1a1aa/ffffff?text=Project+2"
+              alt="Pekerjaan Lapangan 2"
+              class="w-full rounded-xl shadow-lg object-cover transition-transform group-hover:scale-105 cursor-pointer"
+            />
+            <input
+              type="file"
+              id="work-upload-2"
+              accept="image/*"
+              class="hidden"
+            />
+            <label
+              for="work-upload-2"
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            >
+              <span data-i18n="upload-photo" class="text-sm font-bold"
+                >Unggah Foto</span
+              >
+            </label>
+            <p
+              data-i18n="gallery-desc2"
+              class="text-sm text-gray-600 text-center mt-2"
+            >
+              Pekerjaan pemeliharaan rutin dan pengujian link.
+            </p>
+          </div>
+          <!-- Project 3 -->
+          <div class="relative group">
+            <img
+              id="work-img-3"
+              src="https://placehold.co/500x350/a1a1aa/ffffff?text=Project+3"
+              alt="Pekerjaan Lapangan 3"
+              class="w-full rounded-xl shadow-lg object-cover transition-transform group-hover:scale-105 cursor-pointer"
+            />
+            <input
+              type="file"
+              id="work-upload-3"
+              accept="image/*"
+              class="hidden"
+            />
+            <label
+              for="work-upload-3"
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 text-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer"
+            >
+              <span data-i18n="upload-photo" class="text-sm font-bold"
+                >Unggah Foto</span
+              >
+            </label>
+            <p
+              data-i18n="gallery-desc3"
+              class="text-sm text-gray-600 text-center mt-2"
+            >
+              Analisis dan optimalisasi performa jaringan.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="fixed bottom-0 left-0 right-0 bg-white text-gray-600 text-center py-6 rounded-t-3xl shadow-lg z-50 transition-colors duration-300"
+    >
+      <p data-i18n="footer-text" class="text-sm opacity-80">
+        &copy; 2025 Imam Wahyudi - Hak Cipta Dilindungi
+      </p>
+    </footer>
+
+    <script>
+      // Data for translations
+      const translations = {
+        id: {
+          "header-subtitle":
+            "Senior Microwave Technical Support | Jakarta, Indonesia",
+          "download-cv": "Unduh CV",
+          "upload-photo": "Unggah Foto",
+          "about-title": "Tentang Saya",
+          "about-text":
+            "Saya adalah seorang profesional di bidang Microwave Technical Support dengan pengalaman lebih dari 15 tahun di industri telekomunikasi. Saya memiliki keahlian dalam instalasi, commissioning, dan troubleshooting berbagai perangkat microwave.",
+          "experience-title": "Pengalaman Kerja",
+          "experience-job1-title": "Senior Microwave Technical Support",
+          "experience-job1-company": "PT Fiberhome Technologies Indonesia",
+          "experience-job1-date": "2010 - Sekarang",
+          "experience-job1-desc1":
+            "Instalasi, pengujian, dan troubleshooting perangkat microwave berbagai vendor.",
+          "experience-job1-desc2":
+            "Analisis performa link menggunakan Spectrum Analyzer & Pathloss.",
+          "experience-job1-desc3":
+            "Membuat laporan performa harian dan koordinasi dengan tim operator.",
+          "education-title": "Pendidikan",
+          "education-degree1-title": "Sarjana Teknik Telekomunikasi",
+          "education-degree1-university": "Universitas Telkom",
+          "education-degree1-date": "2005 - 2009",
+          "skills-title": "Keahlian",
+          "skills-devices-title": "Perangkat",
+          "skills-tools-title": "Tools",
+          "skills-planning-title": "Network Planning",
+          "gallery-title": "Galeri Pekerjaan",
+          "gallery-desc1": "Instalasi perangkat microwave di lokasi terpencil.",
+          "gallery-desc2": "Pekerjaan pemeliharaan rutin dan pengujian link.",
+          "gallery-desc3": "Analisis dan optimalisasi performa jaringan.",
+          "contact-title": "Kontak",
+          "contact-email": "Email:",
+          "contact-phone": "HP/WA:",
+          "contact-location": "Lokasi:",
+          "footer-text": "© 2025 Imam Wahyudi - Hak Cipta Dilindungi",
+        },
+        en: {
+          "header-subtitle":
+            "Senior Microwave Technical Support | Jakarta, Indonesia",
+          "download-cv": "Download CV",
+          "upload-photo": "Upload Photo",
+          "about-title": "About Me",
+          "about-text":
+            "I am a professional in the field of Microwave Technical Support with over 15 years of experience in the telecommunications industry. I have expertise in the installation, commissioning, and troubleshooting of various microwave devices.",
+          "experience-title": "Work Experience",
+          "experience-job1-title": "Senior Microwave Technical Support",
+          "experience-job1-company": "PT Fiberhome Technologies Indonesia",
+          "experience-job1-date": "2010 - Present",
+          "experience-job1-desc1":
+            "Installation, testing, and troubleshooting of various microwave vendor devices.",
+          "experience-job1-desc2":
+            "Analysis of link performance using Spectrum Analyzer & Pathloss.",
+          "experience-job1-desc3":
+            "Creating daily performance reports and coordinating with the operator team.",
+          "education-title": "Education",
+          "education-degree1-title":
+            "Bachelor of Telecommunications Engineering",
+          "education-degree1-university": "Telkom University",
+          "education-degree1-date": "2005 - 2009",
+          "skills-title": "Skills",
+          "skills-devices-title": "Devices",
+          "skills-tools-title": "Tools",
+          "skills-planning-title": "Network Planning",
+          "gallery-title": "Work Gallery",
+          "gallery-desc1":
+            "Installation of microwave equipment in remote locations.",
+          "gallery-desc2": "Routine maintenance work and link testing.",
+          "gallery-desc3": "Analysis and optimization of network performance.",
+          "contact-title": "Contact",
+          "contact-email": "Email:",
+          "contact-phone": "Phone/WA:",
+          "contact-location": "Location:",
+          "footer-text": "© 2025 Imam Wahyudi - All Rights Reserved",
+        },
+      };
+
+      // Function to update all text on the page
+      function updateLanguage(lang) {
+        document.querySelectorAll("[data-i18n]").forEach((element) => {
+          const key = element.getAttribute("data-i18n");
+          if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
+          }
+        });
+        document.body.lang = lang; // Set the lang attribute on the body
+      }
+
+      // Event listeners for language buttons
+      document
+        .getElementById("lang-id")
+        .addEventListener("click", () => updateLanguage("id"));
+      document
+        .getElementById("lang-en")
+        .addEventListener("click", () => updateLanguage("en"));
+
+      // Dark mode functionality
+      const toggleBtn = document.getElementById("darkToggle");
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark");
+        if (document.body.classList.contains("dark")) {
+          document.body.classList.remove("bg-gray-50", "text-gray-800");
+          document.body.classList.add("bg-gray-900", "text-gray-100");
+          document.querySelector("header").classList.remove("bg-white");
+          document.querySelector("header").classList.add("bg-slate-800");
+          document
+            .querySelector("footer")
+            .classList.remove("bg-white", "text-gray-600");
+          document
+            .querySelector("footer")
+            .classList.add("bg-slate-800", "text-gray-300");
+          document.querySelectorAll(".bg-white").forEach((el) => {
+            el.classList.remove("bg-white");
+            el.classList.add("bg-gray-800");
+          });
+          document
+            .querySelectorAll(".text-slate-700, .text-slate-800")
+            .forEach((el) => {
+              el.classList.remove("text-slate-700", "text-slate-800");
+              el.classList.add("text-gray-100");
+            });
+          document
+            .querySelectorAll(".text-gray-600, .text-gray-500")
+            .forEach((el) => {
+              el.classList.remove("text-gray-600", "text-gray-500");
+              el.classList.add("text-gray-300");
+            });
+          toggleBtn.textContent = "☀️";
+        } else {
+          document.body.classList.remove("bg-gray-900", "text-gray-100");
+          document.body.classList.add("bg-gray-50", "text-gray-800");
+          document.querySelector("header").classList.remove("bg-slate-800");
+          document.querySelector("header").classList.add("bg-white");
+          document
+            .querySelector("footer")
+            .classList.remove("bg-slate-800", "text-gray-300");
+          document
+            .querySelector("footer")
+            .classList.add("bg-white", "text-gray-600");
+          document.querySelectorAll(".bg-gray-800").forEach((el) => {
+            el.classList.remove("bg-gray-800");
+            el.classList.add("bg-white");
+          });
+          document.querySelectorAll(".text-gray-100").forEach((el) => {
+            el.classList.remove("text-gray-100");
+            el.classList.add("text-slate-700", "text-slate-800");
+          });
+          document.querySelectorAll(".text-gray-300").forEach((el) => {
+            el.classList.remove("text-gray-300");
+            el.classList.add("text-gray-600", "text-gray-500");
+          });
+          toggleBtn.textContent = "🌙";
+        }
+      });
+
+      // Intersection Observer for fade-in effect
+      const faders = document.querySelectorAll(".fade-in");
+      const appearOptions = { threshold: 0.2 };
+      const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, appearOptions);
+
+      faders.forEach((fader) => {
+        appearOnScroll.observe(fader);
+      });
+
+      // --- Image Upload and Storage Functions ---
+
+      /**
+       * Loads an image from localStorage and sets it as the source for an <img> element.
+       * @param {string} storageKey The key used to store the image in localStorage.
+       * @param {string} elementId The ID of the <img> element.
+       */
+      function loadImageFromStorage(storageKey, elementId) {
+        const storedImage = localStorage.getItem(storageKey);
+        const imageElement = document.getElementById(elementId);
+        if (storedImage && imageElement) {
+          imageElement.src = storedImage;
+        }
+      }
+
+      /**
+       * Handles the image upload process for a specific element.
+       * @param {string} inputId The ID of the file input element.
+       * @param {string} imgId The ID of the <img> element to update.
+       * @param {string} storageKey The key to use for localStorage.
+       */
+      function handleImageUpload(inputId, imgId, storageKey) {
+        const fileInput = document.getElementById(inputId);
+        const imageElement = document.getElementById(imgId);
+
+        fileInput.addEventListener("change", (event) => {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const imageDataUrl = e.target.result;
+              imageElement.src = imageDataUrl;
+              localStorage.setItem(storageKey, imageDataUrl);
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+      }
+
+      // Function to handle the PDF download
+      function handleDownload() {
+        window.print();
+      }
+
+      // Initialize profile and gallery images on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        // Load profile image
+        loadImageFromStorage("profileImage", "profile-img");
+
+        // Load gallery images
+        loadImageFromStorage("workImage1", "work-img-1");
+        loadImageFromStorage("workImage2", "work-img-2");
+        loadImageFromStorage("workImage3", "work-img-3");
+
+        // Set up listeners for image uploads
+        handleImageUpload("image-upload", "profile-img", "profileImage");
+        handleImageUpload("work-upload-1", "work-img-1", "workImage1");
+        handleImageUpload("work-upload-2", "work-img-2", "workImage2");
+        handleImageUpload("work-upload-3", "work-img-3", "workImage3");
+
+        // Set initial language
+        updateLanguage("id");
+
+        // Attach event listener for the download button
+        const downloadBtn = document.getElementById("download-cv-btn");
+        if (downloadBtn) {
+          downloadBtn.addEventListener("click", handleDownload);
+        }
+      });
+    </script>
+  </body>
+</html>
